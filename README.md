@@ -1,4 +1,4 @@
-# studyLaravel
+# studyLumen
 
 #### 概要
 自分用のLumenのローカル仮想環境を構築するVagrantとAnsible設定ファイルです。
