@@ -101,7 +101,16 @@
       command: update
       working_dir: /var/www/lumen
 
-  # 6. Restart
+  # 6. Setup MySQL
+  - name: create mysql user
+    mysql_user: name=user password=password priv=*.*:ALL state=present host={{item}}
+    with_items:
+      - "localhost"
+ 
+  - name: create mysql database
+    mysql_db: name=laravel state=present encoding=utf8
+
+  # 7. Restart
   - name: restart service
     command: systemctl restart {{ item }}
     with_items:
